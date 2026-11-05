@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DebtZero — Stillroom Studio</title>
+  <style>
+    :root{--forest:#1f3350;--forest2:#2c4a73;--sage:#8691a8;--mint:#e8ecf4;--cream:#f4f0e7;--paper:#fffdf9;--ink:#1b2436;--muted:#67707f;--gold:#c3703f;--line:#dde1ea;--red:#b94b55;--amber:#b8812e;--green:#2e7d6b;--shadow:0 16px 38px rgba(20,30,45,.1)}
+    [data-theme="dark"]{--cream:#0c1220;--paper:#141c2c;--ink:#eef1f7;--muted:#a3acc0;--line:#283349;--mint:#1d2740;--shadow:0 16px 38px rgba(0,0,0,.3)}
+    [data-theme="dark"] .order-item:not(.target) .rank{color:#dfe6f2}
+    [data-theme="dark"] .badge-chip.earned{color:#f0d9bf}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--cream);color:var(--ink)}button,input,select{font:inherit}button{cursor:pointer}.app{min-height:100vh;display:grid;grid-template-columns:250px 1fr}.sidebar{position:sticky;top:0;height:100vh;padding:28px 20px;background:linear-gradient(180deg,var(--forest),#0e1726);color:#fff;display:flex;flex-direction:column}.brand{font-family:Georgia,serif;font-size:27px;line-height:1}.brand small{display:block;margin-top:8px;font:700 10px/1.3 Inter,sans-serif;letter-spacing:2.3px;color:#c7a57a}.nav{display:grid;gap:8px;margin-top:45px}.nav button{display:flex;gap:12px;align-items:center;border:0;background:transparent;color:#eceff6;padding:12px 14px;border-radius:13px;text-align:left}.nav button.active,.nav button:hover{background:rgba(255,255,255,.13)}.nav .ico{font-size:17px;width:20px;text-align:center}.privacy{margin-top:auto;font-size:11px;line-height:1.7;color:#c3cbdc}.main{padding:34px clamp(22px,4vw,58px) 70px;max-width:1500px;width:100%;margin:auto}.topbar{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:24px}.eyebrow{font-size:11px;letter-spacing:2px;font-weight:800;color:var(--sage);text-transform:uppercase}.title{margin:7px 0 5px;font:400 clamp(30px,4vw,44px)/1.08 Georgia,serif}.subtitle{margin:0;color:var(--muted)}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:10px 14px;border-radius:12px;font-weight:700}.btn.primary{background:var(--forest);border-color:var(--forest);color:#fff}.btn.soft{background:var(--mint)}.btn.danger{color:var(--red)}.screen{display:none}.screen.active{display:block}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.card,.panel{background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}.card{padding:20px}.card .label{font-size:12px;color:var(--muted)}.card .value{font:700 28px/1.15 Georgia,serif;margin:9px 0 5px}.card .hint{font-size:11px;color:var(--sage)}.hero-card{margin-top:18px;padding:28px;display:grid;grid-template-columns:1.4fr .6fr;gap:28px;background:linear-gradient(130deg,var(--mint),var(--paper))}.hero-value{font:700 clamp(38px,6vw,64px)/1 Georgia,serif;margin:12px 0}.milestone{align-self:center;text-align:center;padding:24px;border-radius:18px;background:var(--paper);border:1px solid var(--line)}.milestone-dot{width:70px;height:70px;margin:auto;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:26px;font-weight:800;background:var(--green)}.grid2{display:grid;grid-template-columns:1.25fr .75fr;gap:18px;margin-top:18px}.panel{padding:22px}.panel-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:16px}.panel-head .btn{white-space:nowrap}.panel h2{font:400 23px/1.2 Georgia,serif;margin:0}.progress{height:10px;background:var(--line);border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--forest2),var(--gold));border-radius:99px}.order-list{display:grid;gap:11px}.order-item{display:grid;grid-template-columns:40px 1fr auto;gap:12px;align-items:center;padding:13px;border:1px solid var(--line);border-radius:14px}.order-item.target{border-color:var(--gold);background:var(--mint)}.order-item .rank{width:40px;height:40px;border-radius:50%;background:var(--mint);display:grid;place-items:center;font-weight:800;color:var(--forest)}.order-item.target .rank{background:var(--gold);color:#fff}.order-item strong{display:block}.order-item small{color:var(--muted)}.badge{padding:5px 9px;border-radius:99px;background:var(--mint);font-size:11px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px}table{width:100%;border-collapse:collapse;min-width:720px;background:var(--paper)}th,td{padding:14px 15px;border-bottom:1px solid var(--line);text-align:left}th{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);background:var(--mint)}td:last-child,th:last-child{text-align:right}.amount{font-weight:800}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:18px}.toolbar h2{font:400 29px Georgia,serif;margin:0}.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.field{display:grid;gap:7px;margin-bottom:14px}.field label{font-size:12px;font-weight:700}.field input,.field select{width:100%;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:12px;border-radius:11px}.radio-row{display:flex;gap:10px}.radio-opt{flex:1;border:1px solid var(--line);border-radius:12px;padding:12px;cursor:pointer;text-align:center}.radio-opt.active{border-color:var(--forest);background:var(--mint);font-weight:800}.notice{padding:14px 16px;background:var(--mint);border-radius:13px;color:var(--muted);font-size:13px;line-height:1.5}.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(10,16,28,.62);z-index:20;align-items:center;justify-content:center;padding:20px}.modal-backdrop.open{display:flex}.modal{width:min(560px,100%);max-height:90vh;overflow:auto;background:var(--paper);border-radius:22px;padding:25px;box-shadow:0 30px 80px rgba(0,0,0,.3)}.modal h2{font:400 27px Georgia,serif;margin:0 0 18px}.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}.empty{text-align:center;padding:45px;color:var(--muted)}.mobile-menu{display:none}.toast{position:fixed;right:24px;bottom:24px;background:var(--forest);color:#fff;padding:13px 17px;border-radius:12px;opacity:0;transform:translateY(10px);pointer-events:none;transition:.2s;z-index:30}.toast.show{opacity:1;transform:none}.badges-row{display:flex;flex-wrap:wrap;gap:10px}.badge-chip{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:14px;border:1px solid var(--line);background:var(--paper);font-size:12px;font-weight:700;color:var(--muted)}.badge-chip .dot{width:9px;height:9px;border-radius:50%;background:var(--line);flex:none}.badge-chip.earned{background:var(--mint);color:var(--forest);border-color:var(--gold)}.badge-chip.earned .dot{background:var(--gold)}.chart-svg{width:100%;height:auto;display:block}.chart-labels{display:flex;justify-content:space-between;margin-top:8px;font-size:11px;color:var(--muted)}.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.compare-col{padding:16px;border:1px solid var(--line);border-radius:14px}.compare-col.winner{border-color:var(--gold);background:var(--mint)}.compare-col strong{display:block;margin-bottom:6px;font:700 16px Inter,sans-serif}.compare-col .subtitle{margin:2px 0}.compare-col .win-tag{display:inline-block;margin-top:6px;padding:3px 9px;border-radius:99px;background:var(--gold);color:#fff;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.5px}
+    @media(max-width:1050px){.compare-row{grid-template-columns:1fr}}
+    @media(max-width:1050px){.cards{grid-template-columns:repeat(2,1fr)}.grid2,.hero-card{grid-template-columns:1fr}}
+    @media(max-width:760px){.app{display:block}.sidebar{position:fixed;z-index:15;left:-270px;width:250px;transition:.2s}.sidebar.open{left:0}.mobile-menu{display:block}.main{padding:20px 16px 60px}.topbar{align-items:center}.actions .desktop{display:none}.cards{grid-template-columns:1fr 1fr;gap:10px}.card{padding:15px}.card .value{font-size:22px}.settings-grid{grid-template-columns:1fr}.hero-card{padding:20px}.order-item{grid-template-columns:34px 1fr}.order-item .badge{display:none}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">DebtZero<small>BY STILLROOM STUDIO</small></div>
+    <nav class="nav" id="nav">
+      <button class="active" data-screen="dashboard"><span class="ico">⌂</span><span data-i18n="dashboard">Dashboard</span></button>
+      <button data-screen="debts"><span class="ico">▣</span><span data-i18n="debts">Debts</span></button>
+      <button data-screen="plan"><span class="ico">↗</span><span data-i18n="plan">Payoff Plan</span></button>
+      <button data-screen="payments"><span class="ico">✓</span><span data-i18n="payments">Payments</span></button>
+      <button data-screen="settings"><span class="ico">⚙</span><span data-i18n="settings">Settings</span></button>
+    </nav>
+    <div class="privacy"><span data-i18n="privacyLine1">Your data stays on this device.</span><br><span data-i18n="privacyLine2">Private · Offline · No subscription</span></div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div style="display:flex;gap:12px;align-items:flex-start"><button class="btn mobile-menu" id="menuBtn">☰</button><div><div class="eyebrow" data-i18n="calmMoney">Watch your debt shrink</div><h1 class="title" id="pageTitle">Welcome back</h1><p class="subtitle" id="pageSub">One payment at a time.</p></div></div>
+      <div class="actions"><button class="btn desktop" id="themeBtn">◐</button><button class="btn soft" id="quickPayment" data-i18n="logPayment">+ Log payment</button><button class="btn primary" id="quickDebt" data-i18n="addDebt">+ Add debt</button></div>
+    </header>
+
+    <section class="screen active" id="screen-dashboard">
+      <div class="cards">
+        <div class="card"><div class="label" data-i18n="totalDebt">Total debt remaining</div><div class="value" id="kpiTotal">—</div><div class="hint" id="kpiDebtCount">—</div></div>
+        <div class="card"><div class="label" data-i18n="eliminated">Eliminated so far</div><div class="value" id="kpiEliminated">—</div><div class="hint" id="kpiProgress">—</div></div>
+        <div class="card"><div class="label" data-i18n="monthlyMin">Monthly minimums</div><div class="value" id="kpiMin">—</div><div class="hint" data-i18n="acrossAllDebts">Across all debts</div></div>
+        <div class="card"><div class="label" data-i18n="burnRate">Debt burn rate</div><div class="value" id="kpiBurn">—</div><div class="hint" data-i18n="avgPerMonth">Avg. reduction per month</div></div>
+      </div>
+      <div class="panel hero-card">
+        <div><div class="eyebrow" data-i18n="projectedFree">Projected debt-free date</div><div class="hero-value" id="heroDate">—</div><p class="subtitle" id="heroExplain">—</p><div class="progress"><i id="dashProgress" style="width:0%"></i></div><p class="hint" id="dashProgressText"></p></div>
+        <div class="milestone"><div class="milestone-dot" id="milestonePct">0%</div><h3 data-i18n="paidOff">paid off</h3><p class="subtitle" id="milestoneText">Add your first debt to begin.</p></div>
+      </div>
+      <div class="grid2">
+        <div class="panel"><div class="panel-head"><h2 data-i18n="balanceChart">Balance over time</h2></div><div id="chartWrap"></div></div>
+        <div class="panel"><div class="panel-head"><h2 data-i18n="milestones">Milestones</h2></div><div class="badges-row" id="badgesRow"></div></div>
+      </div>
+      <div class="grid2">
+        <div class="panel"><div class="panel-head"><h2 data-i18n="payoffOrder">Your payoff order</h2><button class="btn" data-go="plan" data-i18n="viewPlan">View full plan</button></div><div class="order-list" id="orderList"></div></div>
+        <div class="panel"><div class="panel-head"><h2 data-i18n="recentPayments">Recent payments</h2></div><div class="order-list" id="recentPayments"></div></div>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-debts"><div class="toolbar"><h2 data-i18n="debts">Debts</h2><button class="btn primary" data-add="debt" data-i18n="addDebt">+ Add debt</button></div><div class="table-wrap"><table><thead><tr><th data-i18n="name">Name</th><th data-i18n="category">Category</th><th data-i18n="apr">APR</th><th data-i18n="minPayment">Min payment</th><th data-i18n="balance">Balance</th><th></th></tr></thead><tbody id="debtRows"></tbody></table></div></section>
+
+    <section class="screen" id="screen-plan">
+      <div class="toolbar"><h2 data-i18n="plan">Payoff Plan</h2></div>
+      <div class="panel">
+        <h2 data-i18n="strategy" style="margin-top:0">Strategy</h2>
+        <div class="radio-row" id="strategyRow">
+          <div class="radio-opt" data-strategy="avalanche"><strong data-i18n="avalanche">Avalanche</strong><br><small data-i18n="avalancheDesc">Highest interest rate first — saves the most money.</small></div>
+          <div class="radio-opt" data-strategy="snowball"><strong data-i18n="snowball">Snowball</strong><br><small data-i18n="snowballDesc">Smallest balance first — fastest early wins.</small></div>
+        </div>
+        <br>
+        <div class="field"><label data-i18n="extraPayment">Extra payment per month</label><input id="extraPayment" type="number" min="0" step="0.01"></div>
+        <button class="btn primary" id="savePlan" data-i18n="save">Save changes</button>
+      </div>
+      <div class="panel"><div class="panel-head"><h2 data-i18n="compareTitle" style="margin:0">Strategy comparison</h2></div><div id="strategyCompare"></div></div>
+      <div class="grid2">
+        <div class="panel"><div class="panel-head"><h2 data-i18n="payoffOrder">Your payoff order</h2></div><div class="order-list" id="planOrderList"></div></div>
+        <div class="panel"><div class="panel-head"><h2 data-i18n="projectedSummary">Projected summary</h2><button class="btn" id="exportScheduleBtn" data-i18n="exportSchedule">Export schedule (CSV)</button></div><div id="planSummary"></div></div>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-payments"><div class="toolbar"><h2 data-i18n="payments">Payments</h2><button class="btn primary" data-add="payment" data-i18n="logPayment">+ Log payment</button></div><div class="table-wrap"><table><thead><tr><th data-i18n="date">Date</th><th data-i18n="debt">Debt</th><th data-i18n="amount">Amount</th><th></th></tr></thead><tbody id="paymentRows"></tbody></table></div></section>
+
+    <section class="screen" id="screen-settings"><div class="settings-grid">
+      <div class="panel"><h2 data-i18n="preferences">Preferences</h2><br><div class="field"><label data-i18n="language">Language</label><select id="language"><option value="en">English</option><option value="uk">Українська</option><option value="es">Español</option></select></div><div class="field"><label data-i18n="currency">Currency</label><select id="currency"><option value="USD">USD — $</option><option value="EUR">EUR — €</option><option value="GBP">GBP — £</option><option value="UAH">UAH — ₴</option><option value="CAD">CAD — C$</option><option value="AUD">AUD — A$</option></select></div><div class="field"><label data-i18n="theme">Theme</label><select id="theme"><option value="light" data-i18n="themeLight">Light</option><option value="dark" data-i18n="themeDark">Dark</option></select></div><button class="btn primary" id="savePrefs" data-i18n="save">Save changes</button></div>
+      <div class="panel"><h2 data-i18n="dataBackup">Data & backup</h2><br><p class="notice" data-i18n="backupNote">Everything is stored locally in this browser. Export a backup regularly.</p><br><div class="actions"><button class="btn" id="exportBtn" data-i18n="export">Export backup</button><button class="btn" id="importBtn" data-i18n="import">Import backup</button><input type="file" id="importFile" accept="application/json" hidden></div></div>
+      <div class="panel"><h2 data-i18n="demoReset">Demo & reset</h2><br><p class="notice" data-i18n="demoNote">Load sample data to explore the app, or start with a clean workspace.</p><br><div class="actions"><button class="btn soft" id="demoBtn" data-i18n="loadDemo">Load demo data</button><button class="btn danger" id="resetBtn" data-i18n="clearData">Clear all data</button></div></div>
+      <div class="panel"><h2 data-i18n="aboutPlan" style="margin-top:0">About this tool</h2><br><p class="notice" data-i18n="aboutNote">DebtZero assumes you are paying down existing balances, not adding new charges. If a balance grows from new spending, delete the debt and re-add it with the updated amount.</p></div>
+    </div></section>
+  </main>
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop"><form class="modal" id="modalForm"><h2 id="modalTitle"></h2><div id="modalFields"></div><div class="modal-actions"><button type="button" class="btn" id="cancelModal" data-i18n="cancel">Cancel</button><button class="btn primary" data-i18n="save">Save</button></div></form></div>
+<div class="toast" id="toast"></div>
+<script>
+const KEY='stillroom_debtzero_v1';
+const T={
+en:{dashboard:'Dashboard',debts:'Debts',plan:'Payoff Plan',payments:'Payments',settings:'Settings',calmMoney:'Watch your debt shrink',welcome:'Welcome back',dashSub:'One payment at a time.',logPayment:'+ Log payment',addDebt:'+ Add debt',totalDebt:'Total debt remaining',eliminated:'Eliminated so far',monthlyMin:'Monthly minimums',acrossAllDebts:'Across all debts',burnRate:'Debt burn rate',avgPerMonth:'Avg. reduction per month',projectedFree:'Projected debt-free date',paidOff:'paid off',payoffOrder:'Your payoff order',viewPlan:'View full plan',recentPayments:'Recent payments',name:'Name',category:'Category',apr:'APR',minPayment:'Min payment',balance:'Balance',strategy:'Strategy',avalanche:'Avalanche',avalancheDesc:'Highest interest rate first — saves the most money.',snowball:'Snowball',snowballDesc:'Smallest balance first — fastest early wins.',extraPayment:'Extra payment per month',save:'Save changes',projectedSummary:'Projected summary',date:'Date',debt:'Debt',amount:'Amount',preferences:'Preferences',language:'Language',currency:'Currency',theme:'Theme',dataBackup:'Data & backup',backupNote:'Everything is stored locally in this browser. Export a backup regularly.',export:'Export backup',import:'Import backup',demoReset:'Demo & reset',demoNote:'Load sample data to explore the app, or start with a clean workspace.',loadDemo:'Load demo data',clearData:'Clear all data',aboutPlan:'About this tool',aboutNote:'DebtZero assumes you are paying down existing balances, not adding new charges. If a balance grows from new spending, delete the debt and re-add it with the updated amount.',cancel:'Cancel',delete:'Delete',saved:'Saved',demoLoaded:'Demo data loaded',backupImported:'Backup imported',confirmReset:'Clear all DebtZero data?',invalidBackup:'This backup file is not valid.',noDebts:'No debts yet. Add your first one to see your payoff order.',noPayments:'No payments logged yet.',debtFree:'Debt-free!',debtFreeText:'Every debt you added has been paid off.',addFirstDebt:'Add a debt to see your projection.',target:'Current target',months:'months',monthsToFree:'to debt-free',totalInterest:'Projected interest',interestSaved:'Interest saved vs. minimums only',warnNotConverging:'At the current minimum payments, this balance may never shrink — consider adding an extra payment.',milestoneStart:'Add your first debt to begin.',milestoneHalf:'Halfway there — keep going.',milestoneDone:'Every debt is paid off.',milestoneProgress:'{{count}} of {{total}} debts paid off.',min:'min',perMonth:'/mo',privacyLine1:'Your data stays on this device.',privacyLine2:'Private · Offline · No subscription',themeLight:'Light',themeDark:'Dark',balanceChart:'Balance over time',milestones:'Milestones',badgeFirstPayment:'First payment logged',badgeQuarter:'25% paid off',badgeHalf:'Halfway there',badgeThreeQuarter:'75% paid off',badgeFirstCleared:'First debt cleared',badgeDebtFree:'Debt-free',compareTitle:'Strategy comparison',exportSchedule:'Export schedule (CSV)',scheduleExported:'Schedule exported',nothingToExport:'Add a debt first to export a schedule.',chartStart:'Today',chartEnd:'Debt-free',bestValue:'Best value'},
+uk:{dashboard:'Огляд',debts:'Борги',plan:'План погашення',payments:'Платежі',settings:'Налаштування',calmMoney:'Дивіться, як борг зменшується',welcome:'З поверненням',dashSub:'Крок за кроком.',logPayment:'+ Записати платіж',addDebt:'+ Додати борг',totalDebt:'Залишок боргу',eliminated:'Вже погашено',monthlyMin:'Щомісячні мінімуми',acrossAllDebts:'За всіма боргами',burnRate:'Темп погашення',avgPerMonth:'Сер. зменшення на місяць',projectedFree:'Прогнозована дата без боргів',paidOff:'погашено',payoffOrder:'Ваш порядок погашення',viewPlan:'Переглянути план',recentPayments:'Останні платежі',name:'Назва',category:'Категорія',apr:'Ставка',minPayment:'Мін. платіж',balance:'Залишок',strategy:'Стратегія',avalanche:'Лавина',avalancheDesc:'Спочатку найвища ставка — економить найбільше грошей.',snowball:'Сніжна куля',snowballDesc:'Спочатку найменший залишок — швидкі перші перемоги.',extraPayment:'Додатковий платіж на місяць',save:'Зберегти',projectedSummary:'Прогнозований підсумок',date:'Дата',debt:'Борг',amount:'Сума',preferences:'Параметри',language:'Мова',currency:'Валюта',theme:'Тема',dataBackup:'Дані та резервна копія',backupNote:'Усі дані зберігаються локально в цьому браузері. Регулярно експортуйте копію.',export:'Експорт копії',import:'Імпорт копії',demoReset:'Демо та очищення',demoNote:'Завантажте приклад або почніть із чистого простору.',loadDemo:'Завантажити демо',clearData:'Очистити всі дані',aboutPlan:'Про цей інструмент',aboutNote:'DebtZero передбачає, що ви погашаєте наявні борги, а не додаєте нові витрати. Якщо залишок зростає через нові витрати, видаліть борг і додайте його знову з оновленою сумою.',cancel:'Скасувати',delete:'Видалити',saved:'Збережено',demoLoaded:'Демо-дані завантажено',backupImported:'Копію імпортовано',confirmReset:'Очистити всі дані DebtZero?',invalidBackup:'Некоректний файл резервної копії.',noDebts:'Боргів ще немає. Додайте перший, щоб побачити порядок погашення.',noPayments:'Платежів ще не записано.',debtFree:'Без боргів!',debtFreeText:'Усі додані борги погашено.',addFirstDebt:'Додайте борг, щоб побачити прогноз.',target:'Поточна ціль',months:'місяців',monthsToFree:'до повного погашення',totalInterest:'Прогнозовані відсотки',interestSaved:'Заощаджено на відсотках порівняно з мінімумами',warnNotConverging:'За поточних мінімальних платежів цей борг може ніколи не зменшитися — варто додати додатковий платіж.',milestoneStart:'Додайте перший борг, щоб почати.',milestoneHalf:'Половину шляху пройдено — так тримати.',milestoneDone:'Усі борги погашено.',milestoneProgress:'Погашено {{count}} з {{total}} боргів.',min:'мін',perMonth:'/міс',privacyLine1:'Ваші дані залишаються на цьому пристрої.',privacyLine2:'Приватно · Офлайн · Без підписки',themeLight:'Світла',themeDark:'Темна',balanceChart:'Залишок у часі',milestones:'Досягнення',badgeFirstPayment:'Перший платіж записано',badgeQuarter:'25% погашено',badgeHalf:'Половину пройдено',badgeThreeQuarter:'75% погашено',badgeFirstCleared:'Перший борг погашено',badgeDebtFree:'Без боргів',compareTitle:'Порівняння стратегій',exportSchedule:'Експорт графіка (CSV)',scheduleExported:'Графік експортовано',nothingToExport:'Спочатку додайте борг, щоб експортувати графік.',chartStart:'Сьогодні',chartEnd:'Без боргів',bestValue:'Вигідніше'},
+es:{dashboard:'Resumen',debts:'Deudas',plan:'Plan de pago',payments:'Pagos',settings:'Ajustes',calmMoney:'Observa cómo se reduce tu deuda',welcome:'Hola de nuevo',dashSub:'Un pago a la vez.',logPayment:'+ Registrar pago',addDebt:'+ Añadir deuda',totalDebt:'Deuda restante',eliminated:'Eliminado hasta ahora',monthlyMin:'Mínimos mensuales',acrossAllDebts:'En todas las deudas',burnRate:'Ritmo de reducción',avgPerMonth:'Reducción media mensual',projectedFree:'Fecha prevista sin deudas',paidOff:'pagado',payoffOrder:'Tu orden de pago',viewPlan:'Ver plan completo',recentPayments:'Pagos recientes',name:'Nombre',category:'Categoría',apr:'TAE',minPayment:'Pago mínimo',balance:'Saldo',strategy:'Estrategia',avalanche:'Avalancha',avalancheDesc:'Primero la tasa más alta — ahorra más dinero.',snowball:'Bola de nieve',snowballDesc:'Primero el saldo más pequeño — victorias rápidas.',extraPayment:'Pago extra mensual',save:'Guardar cambios',projectedSummary:'Resumen previsto',date:'Fecha',debt:'Deuda',amount:'Importe',preferences:'Preferencias',language:'Idioma',currency:'Moneda',theme:'Tema',dataBackup:'Datos y copia',backupNote:'Todo se guarda localmente en este navegador. Exporta una copia con frecuencia.',export:'Exportar copia',import:'Importar copia',demoReset:'Demo y reinicio',demoNote:'Carga datos de ejemplo o empieza con un espacio limpio.',loadDemo:'Cargar demo',clearData:'Borrar todos los datos',aboutPlan:'Sobre esta herramienta',aboutNote:'DebtZero asume que estás pagando saldos existentes, no añadiendo nuevos cargos. Si un saldo crece por nuevos gastos, elimina la deuda y vuelve a añadirla con el importe actualizado.',cancel:'Cancelar',delete:'Eliminar',saved:'Guardado',demoLoaded:'Datos demo cargados',backupImported:'Copia importada',confirmReset:'¿Borrar todos los datos de DebtZero?',invalidBackup:'El archivo de copia no es válido.',noDebts:'Aún no hay deudas. Añade la primera para ver tu orden de pago.',noPayments:'Aún no se han registrado pagos.',debtFree:'¡Libre de deudas!',debtFreeText:'Todas las deudas que añadiste están pagadas.',addFirstDebt:'Añade una deuda para ver tu previsión.',target:'Objetivo actual',months:'meses',monthsToFree:'para quedar libre de deudas',totalInterest:'Interés previsto',interestSaved:'Interés ahorrado frente a solo mínimos',warnNotConverging:'Con los pagos mínimos actuales, este saldo podría no reducirse nunca — considera añadir un pago extra.',milestoneStart:'Añade tu primera deuda para empezar.',milestoneHalf:'Vas por la mitad — sigue así.',milestoneDone:'Todas las deudas están pagadas.',milestoneProgress:'{{count}} de {{total}} deudas pagadas.',min:'mín',perMonth:'/mes',privacyLine1:'Tus datos permanecen en este dispositivo.',privacyLine2:'Privado · Sin conexión · Sin suscripción',themeLight:'Claro',themeDark:'Oscuro',balanceChart:'Saldo a lo largo del tiempo',milestones:'Logros',badgeFirstPayment:'Primer pago registrado',badgeQuarter:'25% pagado',badgeHalf:'Vas por la mitad',badgeThreeQuarter:'75% pagado',badgeFirstCleared:'Primera deuda pagada',badgeDebtFree:'Libre de deudas',compareTitle:'Comparación de estrategias',exportSchedule:'Exportar calendario (CSV)',scheduleExported:'Calendario exportado',nothingToExport:'Añade una deuda primero para exportar el calendario.',chartStart:'Hoy',chartEnd:'Libre de deudas',bestValue:'Mejor opción'}
+};
+const CAP_MONTHS=600,MAX_BACKUP_BYTES=2*1024*1024,MAX_RECORDS=5000,ALLOWED_LANG=['en','uk','es'],ALLOWED_CUR=['USD','EUR','GBP','UAH','CAD','AUD'],ALLOWED_THEME=['light','dark'],ALLOWED_STRATEGY=['avalanche','snowball'];
+const fresh=()=>({version:1,settings:{language:'en',currency:'USD',theme:'light',strategy:'avalanche',extraPayment:0},debts:[],payments:[]});
+function isNum(n){return typeof n==='number'?Number.isFinite(n):typeof n==='string'&&n.trim()!==''&&Number.isFinite(+n)}
+function isNonNeg(n){return isNum(n)&&+n>=0}
+function isDateStr(s){if(typeof s!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(s))return false;const[y,m,d]=s.split('-').map(Number);const dt=new Date(y,m-1,d);return dt.getFullYear()===y&&dt.getMonth()===m-1&&dt.getDate()===d}
+function isStr(s){return typeof s==='string'}
+function validateBackup(x){
+  if(!x||typeof x!=='object'||Array.isArray(x))return false;
+  if(!x.settings||typeof x.settings!=='object')return false;
+  const s=x.settings;
+  if(!ALLOWED_LANG.includes(s.language)||!ALLOWED_CUR.includes(s.currency)||!ALLOWED_THEME.includes(s.theme)||!ALLOWED_STRATEGY.includes(s.strategy))return false;
+  if(!isNonNeg(s.extraPayment))return false;
+  if(!Array.isArray(x.debts)||!Array.isArray(x.payments))return false;
+  if(x.debts.length>MAX_RECORDS||x.payments.length>MAX_RECORDS)return false;
+  if(!x.debts.every(d=>d&&typeof d==='object'&&isStr(d.id)&&isStr(d.name)&&isStr(d.category)&&isNonNeg(d.apr)&&+d.apr<=100&&isNonNeg(d.minPayment)&&isNonNeg(d.balance)&&isNonNeg(d.originalBalance)))return false;
+  const debtIds=new Set();
+  for(const d of x.debts){if(debtIds.has(d.id))return false;debtIds.add(d.id)}
+  if(!x.payments.every(p=>p&&typeof p==='object'&&isDateStr(p.date)&&isNonNeg(p.amount)&&isStr(p.debtId)&&debtIds.has(p.debtId)))return false;
+  return true;
+}
+function sanitizeBackup(x){
+  const idMap={};
+  const debts=x.debts.map(d=>{const newId=id();idMap[d.id]=newId;return{id:newId,name:String(d.name).slice(0,120),category:String(d.category).slice(0,80),apr:+d.apr,minPayment:+d.minPayment,balance:+d.balance,originalBalance:+d.originalBalance}});
+  const payments=x.payments.filter(p=>idMap[p.debtId]).map(p=>({id:id(),date:p.date,debtId:idMap[p.debtId],amount:+p.amount}));
+  return{version:1,settings:{language:x.settings.language,currency:x.settings.currency,theme:x.settings.theme,strategy:x.settings.strategy,extraPayment:+x.settings.extraPayment},debts,payments};
+}
+let state=load(),screen='dashboard';
+function load(){try{const x=JSON.parse(localStorage.getItem(KEY));return validateBackup(x)?x:fresh()}catch{return fresh()}}
+function save(){localStorage.setItem(KEY,JSON.stringify(state))}
+function todayISO(){return localDateISO(new Date())}
+function localDateISO(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function parseDate(s){const[a,b,c]=s.split('-').map(Number);return new Date(a,b-1,c)}
+function addMonthsISO(s,n){const d=parseDate(s);const day=d.getDate();d.setDate(1);d.setMonth(d.getMonth()+n);const lastDay=new Date(d.getFullYear(),d.getMonth()+1,0).getDate();d.setDate(Math.min(day,lastDay));return localDateISO(d)}
+function lang(){return state.settings.language||'en'}
+function tx(k,vars){let s=(T[lang()]&&T[lang()][k])||T.en[k]||k;if(vars)Object.keys(vars).forEach(v=>{s=s.replaceAll('{{'+v+'}}',vars[v])});return s}
+function money(n){return new Intl.NumberFormat(lang()==='uk'?'uk-UA':lang()==='es'?'es-ES':'en-US',{style:'currency',currency:state.settings.currency||'USD',maximumFractionDigits:2}).format(Number(n)||0)}
+function dateFmt(s,opt={month:'short',day:'numeric',year:'numeric'}){return new Intl.DateTimeFormat(lang()==='uk'?'uk-UA':lang()==='es'?'es-ES':'en-US',opt).format(parseDate(s))}
+function esc(v){return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+function id(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
+function totalBalance(){return state.debts.reduce((s,d)=>s+Number(d.balance),0)}
+function totalOriginal(){return state.debts.reduce((s,d)=>s+Number(d.originalBalance),0)}
+function totalMin(){return state.debts.reduce((s,d)=>s+Number(d.minPayment),0)}
+function orderDebts(debts,strategy){const active=debts.filter(d=>d.balance>0.01),inactive=debts.filter(d=>d.balance<=0.01);active.sort((a,b)=>strategy==='snowball'?a.balance-b.balance:b.apr-a.apr);return active.concat(inactive)}
+function simulatePayoff(inputDebts,extra,strategy,collect){
+  let debts=inputDebts.map(d=>({...d})),months=0,totalInterest=0;
+  const trajectory=collect?[{month:0,balance:debts.reduce((s,d)=>s+Number(d.balance),0)}]:[];
+  if(!debts.length)return{months:0,totalInterest:0,converged:true,trajectory};
+  while(debts.some(d=>d.balance>0.01)&&months<CAP_MONTHS){
+    months++;
+    debts.forEach(d=>{if(d.balance>0){const i=d.balance*(Number(d.apr)/100/12);totalInterest+=i;d.balance+=i}});
+    const ordered=orderDebts(debts,strategy);
+    const eliminatedMin=debts.filter(d=>d.balance<=0.01).reduce((s,d)=>s+Number(d.minPayment),0);
+    let pool=Number(extra)+eliminatedMin,leftover=0;
+    ordered.forEach(d=>{if(d.balance>0){const pay=Math.min(Number(d.minPayment),d.balance);d.balance-=pay;leftover+=Number(d.minPayment)-pay}});
+    pool+=leftover;
+    for(const d of ordered){if(pool<=0)break;if(d.balance<=0)continue;const pay=Math.min(pool,d.balance);d.balance-=pay;pool-=pay}
+    debts.forEach(d=>{if(d.balance<0.01)d.balance=0});
+    if(collect)trajectory.push({month:months,balance:debts.reduce((s,d)=>s+Number(d.balance),0)});
+  }
+  return{months,totalInterest,converged:!debts.some(d=>d.balance>0.01),trajectory}
+}
+function activeDebtsForSim(){return state.debts.map(d=>({id:d.id,name:d.name,balance:Number(d.balance),apr:Number(d.apr),minPayment:Number(d.minPayment)}))}
+function applyI18n(){document.documentElement.lang=lang();document.documentElement.dataset.theme=state.settings.theme;document.querySelectorAll('[data-i18n]').forEach(e=>e.textContent=tx(e.dataset.i18n));document.getElementById('pageTitle').textContent=screen==='dashboard'?tx('welcome'):tx(screen);document.getElementById('pageSub').textContent=screen==='dashboard'?tx('dashSub'):'';document.querySelectorAll('.radio-opt').forEach(el=>el.classList.toggle('active',el.dataset.strategy===state.settings.strategy))}
+function render(){applyI18n();renderDashboard();renderDebts();renderPlan();renderPayments();syncSettings()}
+function orderItemHtml(d,rank,isTarget){return `<div class="order-item ${isTarget?'target':''}"><div class="rank">${rank}</div><div><strong>${esc(d.name)}</strong><small>${d.apr}% APR · ${tx('min')} ${money(d.minPayment)}${tx('perMonth')}</small></div><span class="badge">${money(d.balance)}</span></div>`}
+function renderOrderList(targetEl){const ordered=orderDebts(state.debts.map(d=>({...d,balance:Number(d.balance)})),state.settings.strategy);if(!ordered.length){targetEl.innerHTML=`<div class="empty">${tx('noDebts')}</div>`;return}let firstActiveSeen=false;targetEl.innerHTML=ordered.map((d,i)=>{const isActive=d.balance>0.01;const isTarget=isActive&&!firstActiveSeen;if(isTarget)firstActiveSeen=true;return orderItemHtml(d,i+1,isTarget)}).join('')}
+function renderDashboard(){
+  const tb=totalBalance(),to=totalOriginal(),tm=totalMin();
+  document.getElementById('kpiTotal').textContent=money(tb);
+  document.getElementById('kpiDebtCount').textContent=state.debts.length+' '+tx('debts').toLowerCase();
+  const eliminated=Math.max(0,to-tb);
+  document.getElementById('kpiEliminated').textContent=money(eliminated);
+  const pct=to?Math.round(eliminated/to*100):0;
+  document.getElementById('kpiProgress').textContent=pct+'% '+tx('paidOff');
+  document.getElementById('kpiMin').textContent=money(tm);
+  const paidMonths=new Set(state.payments.map(p=>p.date.slice(0,7))).size;
+  const totalPaid=state.payments.reduce((s,p)=>s+Number(p.amount),0);
+  document.getElementById('kpiBurn').textContent=paidMonths?money(totalPaid/paidMonths):money(0);
+  const sim=simulatePayoff(activeDebtsForSim(),state.settings.extraPayment,state.settings.strategy);
+  if(!state.debts.length){document.getElementById('heroDate').textContent='—';document.getElementById('heroExplain').textContent=tx('addFirstDebt')}
+  else if(tb<=0.01){document.getElementById('heroDate').textContent=tx('debtFree');document.getElementById('heroExplain').textContent=tx('debtFreeText')}
+  else if(!sim.converged){document.getElementById('heroDate').textContent='—';document.getElementById('heroExplain').textContent=tx('warnNotConverging')}
+  else{document.getElementById('heroDate').textContent=dateFmt(addMonthsISO(todayISO(),sim.months));document.getElementById('heroExplain').textContent=sim.months+' '+tx('months')+' '+tx('monthsToFree')}
+  document.getElementById('dashProgress').style.width=pct+'%';
+  document.getElementById('dashProgressText').textContent=pct+'% '+tx('paidOff');
+  document.getElementById('milestonePct').textContent=pct+'%';
+  let msg;const clearedCount=state.debts.filter(d=>d.balance<=0.01).length;
+  if(!state.debts.length)msg=tx('milestoneStart');
+  else if(tb<=0.01)msg=tx('milestoneDone');
+  else if(clearedCount>0)msg=tx('milestoneProgress',{count:clearedCount,total:state.debts.length});
+  else if(pct>=50)msg=tx('milestoneHalf');
+  else msg=tx('milestoneProgress',{count:0,total:state.debts.length});
+  document.getElementById('milestoneText').textContent=msg;
+  renderOrderList(document.getElementById('orderList'));
+  const recent=state.payments.slice().sort((a,b)=>b.date.localeCompare(a.date)).slice(0,5);
+  document.getElementById('recentPayments').innerHTML=recent.length?recent.map(p=>{const d=state.debts.find(x=>x.id===p.debtId);return `<div class="order-item"><div class="rank">✓</div><div><strong>${esc(d?d.name:'—')}</strong><small>${dateFmt(p.date)}</small></div><span class="badge">${money(p.amount)}</span></div>`}).join(''):`<div class="empty">${tx('noPayments')}</div>`;
+  renderChart(sim);
+  renderBadges(tb,to,pct);
+}
+function renderChart(sim){
+  const el=document.getElementById('chartWrap');
+  if(!el)return;
+  if(!state.debts.length){el.innerHTML=`<div class="empty">${tx('addFirstDebt')}</div>`;return}
+  if(totalBalance()<=0.01){el.innerHTML=`<div class="notice">${tx('debtFreeText')}</div>`;return}
+  if(!sim.converged){el.innerHTML=`<div class="notice">${tx('warnNotConverging')}</div>`;return}
+  const full=simulatePayoff(activeDebtsForSim(),state.settings.extraPayment,state.settings.strategy,true);
+  const traj=full.trajectory;
+  if(traj.length<2){el.innerHTML=`<div class="empty">${tx('addFirstDebt')}</div>`;return}
+  const maxBal=Math.max(...traj.map(t=>t.balance),1);
+  const w=600,h=180,pad=8;
+  const pts=traj.map((t,i)=>{
+    const x=pad+(i/(traj.length-1))*(w-2*pad);
+    const y=pad+(1-t.balance/maxBal)*(h-2*pad);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(' ');
+  const areaPts=`${pad},${h-pad} ${pts} ${w-pad},${h-pad}`;
+  el.innerHTML=`<svg class="chart-svg" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+    <polygon points="${areaPts}" style="fill:var(--mint);opacity:.7"/>
+    <polyline points="${pts}" fill="none" style="stroke:var(--forest2);stroke-width:3;stroke-linejoin:round;stroke-linecap:round"/>
+  </svg><div class="chart-labels"><span>${tx('chartStart')} · ${money(traj[0].balance)}</span><span>${tx('chartEnd')} · ${dateFmt(addMonthsISO(todayISO(),full.months))}</span></div>`;
+}
+function renderBadges(tb,to,pct){
+  const el=document.getElementById('badgesRow');
+  if(!el)return;
+  const clearedCount=state.debts.filter(d=>d.balance<=0.01).length;
+  const badges=[
+    {earned:state.payments.length>0,label:tx('badgeFirstPayment')},
+    {earned:pct>=25,label:tx('badgeQuarter')},
+    {earned:pct>=50,label:tx('badgeHalf')},
+    {earned:pct>=75,label:tx('badgeThreeQuarter')},
+    {earned:clearedCount>0,label:tx('badgeFirstCleared')},
+    {earned:state.debts.length>0&&tb<=0.01,label:tx('badgeDebtFree')}
+  ];
+  el.innerHTML=badges.map(b=>`<div class="badge-chip ${b.earned?'earned':''}"><span class="dot"></span>${esc(b.label)}</div>`).join('');
+}
+function renderDebts(){document.getElementById('debtRows').innerHTML=state.debts.length?state.debts.map(d=>`<tr><td><strong>${esc(d.name)}</strong></td><td>${esc(d.category)}</td><td>${d.apr}%</td><td>${money(d.minPayment)}</td><td class="amount">${money(d.balance)}</td><td><button class="btn danger" data-deldebt="${d.id}">×</button></td></tr>`).join(''):`<tr><td colspan="6" class="empty">—</td></tr>`}
+function renderPlan(){
+  document.getElementById('extraPayment').value=state.settings.extraPayment;
+  renderOrderList(document.getElementById('planOrderList'));
+  const sim=simulatePayoff(activeDebtsForSim(),state.settings.extraPayment,state.settings.strategy);
+  const minOnly=simulatePayoff(activeDebtsForSim(),0,state.settings.strategy);
+  const box=document.getElementById('planSummary');
+  if(!state.debts.length){box.innerHTML=`<div class="empty">${tx('noDebts')}</div>`;return}
+  if(totalBalance()<=0.01){box.innerHTML=`<div class="notice">${tx('debtFreeText')}</div>`;return}
+  if(!sim.converged){box.innerHTML=`<div class="notice">${tx('warnNotConverging')}</div>`;return}
+  const saved=Math.max(0,minOnly.totalInterest-sim.totalInterest);
+  box.innerHTML=`<div class="order-list"><div class="order-item"><div class="rank">◷</div><div><strong>${sim.months} ${tx('months')}</strong><small>${tx('monthsToFree')}</small></div><span class="badge">${dateFmt(addMonthsISO(todayISO(),sim.months))}</span></div><div class="order-item"><div class="rank">%</div><div><strong>${money(sim.totalInterest)}</strong><small>${tx('totalInterest')}</small></div></div><div class="order-item"><div class="rank">$</div><div><strong>${money(saved)}</strong><small>${tx('interestSaved')}</small></div></div></div>`;
+  renderCompare();
+}
+function renderCompare(){
+  const el=document.getElementById('strategyCompare');
+  if(!el)return;
+  if(!state.debts.length){el.innerHTML=`<div class="empty">${tx('noDebts')}</div>`;return}
+  if(totalBalance()<=0.01){el.innerHTML=`<div class="notice">${tx('debtFreeText')}</div>`;return}
+  const extra=state.settings.extraPayment;
+  const ava=simulatePayoff(activeDebtsForSim(),extra,'avalanche');
+  const snow=simulatePayoff(activeDebtsForSim(),extra,'snowball');
+  if(!ava.converged||!snow.converged){el.innerHTML=`<div class="notice">${tx('warnNotConverging')}</div>`;return}
+  const cheaper=ava.totalInterest<=snow.totalInterest?'avalanche':'snowball';
+  el.innerHTML=`<div class="compare-row">
+    <div class="compare-col ${cheaper==='avalanche'?'winner':''}"><strong>${tx('avalanche')}</strong><p class="subtitle">${ava.months} ${tx('months')} ${tx('monthsToFree')}</p><p class="subtitle">${money(ava.totalInterest)} ${tx('totalInterest').toLowerCase()}</p>${cheaper==='avalanche'?`<span class="win-tag">${tx('bestValue')}</span>`:''}</div>
+    <div class="compare-col ${cheaper==='snowball'?'winner':''}"><strong>${tx('snowball')}</strong><p class="subtitle">${snow.months} ${tx('months')} ${tx('monthsToFree')}</p><p class="subtitle">${money(snow.totalInterest)} ${tx('totalInterest').toLowerCase()}</p>${cheaper==='snowball'?`<span class="win-tag">${tx('bestValue')}</span>`:''}</div>
+  </div>`;
+}
+function renderPayments(){document.getElementById('paymentRows').innerHTML=state.payments.length?state.payments.slice().sort((a,b)=>b.date.localeCompare(a.date)).map(p=>{const d=state.debts.find(x=>x.id===p.debtId);return `<tr><td>${dateFmt(p.date)}</td><td>${esc(d?d.name:'—')}</td><td class="amount">${money(p.amount)}</td><td><button class="btn danger" data-delpayment="${p.id}">×</button></td></tr>`}).join(''):`<tr><td colspan="4" class="empty">—</td></tr>`}
+function syncSettings(){document.getElementById('language').value=lang();document.getElementById('currency').value=state.settings.currency;document.getElementById('theme').value=state.settings.theme}
+function go(name){screen=name;document.querySelectorAll('.screen').forEach(x=>x.classList.toggle('active',x.id==='screen-'+name));document.querySelectorAll('#nav button').forEach(x=>x.classList.toggle('active',x.dataset.screen===name));document.getElementById('sidebar').classList.remove('open');applyI18n();scrollTo(0,0)}
+const field=(name,label,type='text',value='',extra='')=>`<div class="field"><label>${label}</label><input name="${name}" type="${type}" value="${esc(value)}" ${extra} required></div>`;
+function openModal(type,prefillDebtId){
+  const f=document.getElementById('modalFields');
+  document.getElementById('modalTitle').textContent=tx(type==='debt'?'addDebt':'logPayment');
+  document.getElementById('modalForm').dataset.type=type;
+  if(type==='debt')f.innerHTML=field('name',tx('name'),'text','')+field('category',tx('category'),'text','Credit card')+field('balance',tx('balance'),'number','','min="0" step="0.01"')+field('apr',tx('apr')+' %','number','','min="0" max="100" step="0.01"')+field('minPayment',tx('minPayment'),'number','','min="0" step="0.01"');
+  if(type==='payment'){const opts=state.debts.map(d=>`<option value="${d.id}" ${d.id===prefillDebtId?'selected':''}>${esc(d.name)}</option>`).join('');f.innerHTML=`<div class="field"><label>${tx('debt')}</label><select name="debtId" required>${opts}</select></div>`+field('date',tx('date'),'date',todayISO())+field('amount',tx('amount'),'number','','min="0" step="0.01"')}
+  document.getElementById('modalBackdrop').classList.add('open');
+}
+function closeModal(){document.getElementById('modalBackdrop').classList.remove('open')}
+function toast(s){const e=document.getElementById('toast');e.textContent=s;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),1800)}
+function demo(){
+  const prefs={language:state.settings.language,currency:state.settings.currency,theme:state.settings.theme};
+  const today=todayISO();
+  state=fresh();
+  Object.assign(state.settings,prefs,{strategy:'avalanche',extraPayment:150});
+  state.debts=[
+    {id:id(),name:'Visa card',category:'Credit card',balance:3100,originalBalance:3200,apr:24.99,minPayment:85},
+    {id:id(),name:'Car loan',category:'Auto',balance:9200,originalBalance:9800,apr:6.5,minPayment:220},
+    {id:id(),name:'Personal loan',category:'Personal',balance:1500,originalBalance:1500,apr:11,minPayment:65}
+  ];
+  state.payments=[
+    {id:id(),debtId:state.debts[0].id,date:addMonthsISO(today,-2),amount:100},
+    {id:id(),debtId:state.debts[1].id,date:addMonthsISO(today,-2),amount:600},
+    {id:id(),debtId:state.debts[0].id,date:addMonthsISO(today,-1),amount:100}
+  ];
+  save();render();toast(tx('demoLoaded'));
+}
+document.addEventListener('click',e=>{
+  const n=e.target.closest('[data-screen]');if(n)go(n.dataset.screen);
+  const g=e.target.closest('[data-go]');if(g)go(g.dataset.go);
+  const a=e.target.closest('[data-add]');if(a)openModal(a.dataset.add);
+  const dd=e.target.closest('[data-deldebt]');if(dd){const did=dd.dataset.deldebt;state.debts=state.debts.filter(x=>x.id!==did);state.payments=state.payments.filter(p=>p.debtId!==did);save();render()}
+  const dp=e.target.closest('[data-delpayment]');if(dp){const pid=dp.dataset.delpayment;const p=state.payments.find(x=>x.id===pid);if(p){const debt=state.debts.find(x=>x.id===p.debtId);if(debt)debt.balance=Math.min(debt.originalBalance,Number(debt.balance)+Number(p.amount));state.payments=state.payments.filter(x=>x.id!==pid);save();render()}}
+  const so=e.target.closest('.radio-opt');if(so){state.settings.strategy=so.dataset.strategy;save();render()}
+});
+document.getElementById('quickPayment').onclick=()=>openModal('payment');
+document.getElementById('quickDebt').onclick=()=>openModal('debt');
+document.getElementById('cancelModal').onclick=closeModal;
+document.getElementById('modalBackdrop').onclick=e=>{if(e.target.id==='modalBackdrop')closeModal()};
+document.getElementById('modalForm').onsubmit=e=>{
+  e.preventDefault();
+  const data=Object.fromEntries(new FormData(e.target)),type=e.target.dataset.type;
+  if(type==='debt'){const bal=+data.balance;state.debts.push({id:id(),name:data.name,category:data.category,balance:bal,originalBalance:bal,apr:+data.apr,minPayment:+data.minPayment})}
+  if(type==='payment'){const debt=state.debts.find(x=>x.id===data.debtId);const rawAmt=+data.amount;const amt=debt?Math.min(rawAmt,Number(debt.balance)):rawAmt;if(debt)debt.balance=Math.max(0,Number(debt.balance)-amt);state.payments.push({id:id(),debtId:data.debtId,date:data.date,amount:amt})}
+  save();closeModal();render();toast(tx('saved'));
+};
+document.getElementById('savePlan').onclick=()=>{state.settings.extraPayment=+document.getElementById('extraPayment').value||0;save();render();toast(tx('saved'))};
+function saveAllSettings(){Object.assign(state.settings,{language:document.getElementById('language').value,currency:document.getElementById('currency').value,theme:document.getElementById('theme').value});save();render();toast(tx('saved'))}
+document.getElementById('savePrefs').onclick=saveAllSettings;
+document.getElementById('themeBtn').onclick=()=>{state.settings.theme=state.settings.theme==='dark'?'light':'dark';save();render()};
+document.getElementById('menuBtn').onclick=()=>document.getElementById('sidebar').classList.toggle('open');
+document.getElementById('demoBtn').onclick=demo;
+document.getElementById('resetBtn').onclick=()=>{if(confirm(tx('confirmReset'))){const prefs={language:state.settings.language,currency:state.settings.currency,theme:state.settings.theme};state=fresh();Object.assign(state.settings,prefs);save();render()}};
+document.getElementById('exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='DebtZero_Backup_'+todayISO()+'.json';a.click();URL.revokeObjectURL(a.href)};
+document.getElementById('exportScheduleBtn').onclick=()=>{
+  if(!state.debts.length||totalBalance()<=0.01){toast(tx('nothingToExport'));return}
+  const sim=simulatePayoff(activeDebtsForSim(),state.settings.extraPayment,state.settings.strategy,true);
+  if(!sim.converged){toast(tx('warnNotConverging'));return}
+  const rows=[[tx('date'),tx('balance')]];
+  sim.trajectory.forEach(t=>rows.push([addMonthsISO(todayISO(),t.month),Number(t.balance).toFixed(2)]));
+  const csv=rows.map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob=new Blob([csv],{type:'text/csv'}),a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);a.download='DebtZero_Schedule_'+todayISO()+'.csv';a.click();URL.revokeObjectURL(a.href);
+  toast(tx('scheduleExported'));
+};
+document.getElementById('importBtn').onclick=()=>document.getElementById('importFile').click();
+document.getElementById('importFile').onchange=e=>{const file=e.target.files[0];if(!file)return;if(file.size>MAX_BACKUP_BYTES){alert(tx('invalidBackup'));e.target.value='';return}const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!validateBackup(x))throw 0;state=sanitizeBackup(x);save();render();toast(tx('backupImported'))}catch{alert(tx('invalidBackup'))}e.target.value=''};r.readAsText(file)};
+if(!localStorage.getItem(KEY))demo();else render();
+</script>
+</body>
+</html>
